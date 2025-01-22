@@ -2,12 +2,15 @@ const input = document.getElementById("ip-address");
 const button = document.getElementById("button");
 
 button.addEventListener("click", () => {
-  console.log(input.value);
-
   // TODO fazer verificação se é um IP válido
 
-
   converteIPParaBinario(input.value);
+
+  //calculaSubredes();
+  //calculaHosts();
+  //calculaEnderecoDeRede();
+  //listaHosts();
+  //listaSubredes();
 });
 
 function converteIPParaBinario (ip) {
@@ -18,7 +21,7 @@ function converteIPParaBinario (ip) {
   const converteNumeroParaBinario = (numero) => {
     let pilha = [];
 
-    while (numero != 0) {
+    while (numero != 0 || pilha.length < 8) {
       if (numero % 2 == 0)  {
         pilha.push(0);
       } else pilha.push(1);
@@ -26,17 +29,27 @@ function converteIPParaBinario (ip) {
       numero = Math.floor(numero / 2);
     }
 
-    return pilha.reverse().join('');
+    return pilha.reverse();
   }
 
   const binariosIP = numeros.map((numero) => converteNumeroParaBinario(numero));
   
   // Extração da máscara
   let numeroMascara = parseInt(mascaraEip[1]);
-  let mascara = Array(4).map((l) => {
-    l = new Array(8).fill(1, 0, numeroMascara % 9); // FIXME Não é módulo
-    numeroMascara = numeroMascara - 8;
-  });
+  const mascara = Array(4)
+    .fill(0)
+    .map(() => {
+      const bits = new Array(8).fill(
+        1,
+        0,
+        numeroMascara > 8 ? 8 : numeroMascara,
+      ).fill(0, numeroMascara, 8);
+      numeroMascara = numeroMascara - 8;
+
+      if (numeroMascara < 0) numero = 0;
+      return bits;
+    });
   
-  console.log(mascaraEip, numeros, binariosIP, mascara);
+  return { mascara, binariosIP };
 }
+
