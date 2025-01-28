@@ -54,6 +54,11 @@ export function calculaSubredes(mascara) {
   else return 2 ** (mascara - 24);
 }
 
+export function calculaHostPorSubrede(mascara) {
+// Tem -2?
+  return 2 ** (32 - mascara) - 2;
+}
+
 export function calculaEnderecoDeRede(ipBin, mascaraBin) {
   let enderecoDeRede = Array(4)
     .fill()
@@ -87,9 +92,17 @@ export function calculaEnderecoDeBroadcast(ipBin, mascaraBin) {
 }
 
 export function descobreClasse(primeiroOcteto) {
-  if (primeiroOcteto < 128) return 'A';
-  else if (primeiroOcteto < 192) return 'B';
-  else if (primeiroOcteto < 223) return 'C';
-  else return 'D'
+  if (primeiroOcteto < 128) return "A";
+  else if (primeiroOcteto < 192) return "B";
+  else if (primeiroOcteto < 223) return "C";
+  else return "D";
 }
 
+export function encontraFaixaHost(endBroadcast, endRede) {
+  const broadcastSemFim = endBroadcast.split(".").slice(0, -1).join(".");
+  const novoFim = parseInt(endBroadcast.split(".")[3]) - 1;
+  const inicioRede = endRede.slice(0, -1) + "1";
+  const fimRede = `${broadcastSemFim}.${novoFim}`;
+
+  return `${inicioRede} - ${fimRede}`;
+}
