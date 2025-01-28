@@ -36,18 +36,60 @@ export function converteIPParaBinario(ipValue) {
   return { mascaraBin, ipBin };
 }
 
-export function calculaSubredes(ipBin, mascaraBin) {}
+export function converteParaIpDecimal(ipBin) {
+  let ipDecimal = new Array(4).fill(0);
+  const ipBinInvertido = ipBin.map((bin) => [...bin].reverse());
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 8; j++) {
+      if (ipBinInvertido[i][j] === 1) ipDecimal[i] += 2 ** j;
+    }
+  }
+
+  return ipDecimal.join(".");
+}
+
+export function calculaSubredes(mascara) {
+  if (mascara < 16) return 2 ** (mascara - 8);
+  else if (mascara < 24) return 2 ** (mascara - 16);
+  else return 2 ** (mascara - 24);
+}
 
 export function calculaEnderecoDeRede(ipBin, mascaraBin) {
-  let enderecoDeRede = new Array(4).fill(new Array(8).fill(0));
+  let enderecoDeRede = Array(4)
+    .fill()
+    .map(() => Array(8).fill(0));
 
   for (let i = 0; i < 4; i++) {
-    for (let j = 0; i < 8; j++) {
-      if (ipBin[i][j] + mascaraBin[i][j] == 2) {
+    for (let j = 0; j < 8; j++) {
+      if (ipBin[i][j] + mascaraBin[i][j] === 2) {
         enderecoDeRede[i][j] = 1;
       }
     }
   }
 
-  return enderecoDeRede;
+  return converteParaIpDecimal(enderecoDeRede);
 }
+
+export function calculaEnderecoDeBroadcast(ipBin, mascaraBin) {
+  let endBroadcast = Array(4)
+    .fill()
+    .map(() => Array(8).fill(0));
+
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 8; j++) {
+      if (ipBin[i][j] === 1 || mascaraBin[i][j] === 0) {
+        endBroadcast[i][j] = 1;
+      }
+    }
+  }
+
+  return converteParaIpDecimal(endBroadcast);
+}
+
+export function descobreClasse(primeiroOcteto) {
+  if (primeiroOcteto < 128) return 'A';
+  else if (primeiroOcteto < 192) return 'B';
+  else if (primeiroOcteto < 223) return 'C';
+  else return 'D'
+}
+

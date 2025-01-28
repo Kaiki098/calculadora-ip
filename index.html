@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script/main.js" type="module" defer></script>
     <link rel="stylesheet" href="style.css">
+    <script src="script/main.js" type="module" defer></script>
     <title>Calculadora IP</title>
 </head>
 <body>
@@ -12,14 +12,15 @@
         <h1>Calculadora de IP</h1>
         <label>
             Digite o endereço IP: 
-            <input type="text" id="ip-address" placeholder="Ex.: 192.186.144.6/24"/>
+            <input type="text" id="ip-address" placeholder="Ex.: 192.168.1.1/26"/>
         </label>
         <button id="button">Calcular informações</button>
         <div class="ip-info">
-            <p>Número de subredes: --. </p>
+            <p id="classe">Classe: --. </p>
+            <p id="numero-subredes">Número de subredes: --. </p>
             <p>Número de host/subrede: --. </p>
-            <p>Endereço de rede: --. </p>
-            <p>Endereço de broadcast: --. </p>
+            <p id="end-rede">Endereço de rede: --. </p>
+            <p id="end-broadcast">Endereço de broadcast: --. </p>
             <p>Faixas de endereço que o host pertence: </p>
             <ul>
                 <li>--</li>
