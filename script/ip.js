@@ -99,10 +99,13 @@ export function descobreClasse(primeiroOcteto) {
 }
 
 export function encontraFaixaHost(endBroadcast, endRede) {
-  const broadcastSemFim = endBroadcast.split(".").slice(0, -1).join(".");
-  const novoFim = parseInt(endBroadcast.split(".")[3]) - 1;
-  const inicioRede = endRede.slice(0, -1) + "1";
-  const fimRede = `${broadcastSemFim}.${novoFim}`;
+  const ultimoOctetoBroad = parseInt(endBroadcast.split('.')[3]) - 1; 
+  const primeirosOctetosBroad = endBroadcast.split('.').slice(0, -1).join('.');
+  const fimFaixa = `${primeirosOctetosBroad}.${ultimoOctetoBroad}`;
 
-  return `${inicioRede} - ${fimRede}`;
+  const ultimoOctetoRede = parseInt(endRede.split('.')[3]) + 1;
+  const primeirosOctetosRede = endRede.split('.').slice(0, -1).join('.');
+  const inicioFaixa = `${primeirosOctetosRede}.${ultimoOctetoRede}`;
+
+  return `${inicioFaixa} - ${fimFaixa}`;
 }
