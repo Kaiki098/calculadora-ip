@@ -1,21 +1,20 @@
+function converteNumeroParaBinario(numero) {
+  let pilha = [];
+
+  while (numero != 0 || pilha.length < 8) {
+    if (numero % 2 == 0) {
+      pilha.push(0);
+    } else pilha.push(1);
+
+    numero = Math.floor(numero / 2);
+  }
+
+  return pilha.reverse();
+}
+
 export function converteIPParaBinario(ipValue) {
   const mascaraEip = ipValue.split("/");
   const numeros = mascaraEip[0].split(".").map((numero) => parseInt(numero));
-
-  // Extração do IP
-  const converteNumeroParaBinario = (numero) => {
-    let pilha = [];
-
-    while (numero != 0 || pilha.length < 8) {
-      if (numero % 2 == 0) {
-        pilha.push(0);
-      } else pilha.push(1);
-
-      numero = Math.floor(numero / 2);
-    }
-
-    return pilha.reverse();
-  };
 
   const ipBin = numeros.map((numero) => converteNumeroParaBinario(numero));
 
@@ -55,7 +54,7 @@ export function calculaSubredes(mascara) {
 }
 
 export function calculaHostPorSubrede(mascara) {
-// Tem -2?
+  // Tem -2?
   return 2 ** (32 - mascara) - 2;
 }
 
@@ -99,13 +98,68 @@ export function descobreClasse(primeiroOcteto) {
 }
 
 export function encontraFaixaHost(endBroadcast, endRede) {
-  const ultimoOctetoBroad = parseInt(endBroadcast.split('.')[3]) - 1; 
-  const primeirosOctetosBroad = endBroadcast.split('.').slice(0, -1).join('.');
+  const ultimoOctetoBroad = parseInt(endBroadcast.split(".")[3]) - 1;
+  const primeirosOctetosBroad = endBroadcast.split(".").slice(0, -1).join(".");
   const fimFaixa = `${primeirosOctetosBroad}.${ultimoOctetoBroad}`;
 
-  const ultimoOctetoRede = parseInt(endRede.split('.')[3]) + 1;
-  const primeirosOctetosRede = endRede.split('.').slice(0, -1).join('.');
+  const ultimoOctetoRede = parseInt(endRede.split(".")[3]) + 1;
+  const primeirosOctetosRede = endRede.split(".").slice(0, -1).join(".");
   const inicioFaixa = `${primeirosOctetosRede}.${ultimoOctetoRede}`;
 
   return `${inicioFaixa} - ${fimFaixa}`;
 }
+
+// export function somaBinario(bin1, bin2) {
+//   let maior = bin1.length > bin2.length ? bin1 : bin2;
+//   let menor = bin1.length > bin2.length ? bin2 : bin1;
+
+//   console.log("MAIOR:", maior, "MENOR:", menor);
+//   maior.reverse();
+//   menor.reverse();
+
+//   while (menor.length < maior.length) {
+//     menor.push("0");
+//   }
+
+//   let novoBin = [];
+//   for (let i = 0; i < maior.length; i++) {
+//     if (maior[i] === "1") {
+//       if (menor[i] === "1") {
+//         i++;
+//         novoBin.push("0");
+//         while (true) {
+//           if (maior[i] === "1") {
+//             if (menor[i] === "1") {
+//               novoBin.push("1");
+//             } else {
+//               novoBin.push("0");
+//             }
+//           } else if (menor[i] === "1") {
+//             novoBin.push("0");
+//           } else {
+//             novoBin.push("1");
+//             break;
+//           }
+//           i++;
+//         }
+//       } else {
+//         novoBin.push("1");
+//       }
+//     } else if (menor[i] === "1") {
+//       novoBin.push("1");
+//     } else {
+//       novoBin.push("0");
+//     }
+//   }
+
+//   return novoBin.reverse().join("");
+// }
+
+// export function listaSubredes(mascaraBin, hostPorSubrede) {
+//   const hostPorSubredeBin = converteNumeroParaBinario(hostPorSubrede);
+
+//   let lista = [];
+//   end broad
+
+//   while()
+// }

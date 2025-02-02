@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script/main.js" type="module" defer></script>
     <title>Calculadora IP</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Calculadora IP</h1>
+  </head>
+  <body>
+    <h1>Calculadora IP</h1>
+    <div class="ip-container">
         <label>
-            Digite o endereço IP: 
-            <input type="text" id="ip-address" placeholder="Ex.: 192.168.1.1/26"/>
+          Digite o endereço IP:
+          <input type="text" id="ip-address" placeholder="Ex.: 192.168.1.1/26" />
+          <span id="erro"></span>
         </label>
         <button id="button">Calcular informações</button>
-        <div class="ip-info">
-            <p id="classe">Classe: --. </p>
-            <p id="numero-subredes">Número de subredes: --. </p>
-            <p id="host-por-subrede">Número de host/subrede: --. </p>
-            <p id="end-rede">Endereço de rede: --. </p>
-            <p id="end-broadcast">Endereço de broadcast: --. </p>
-            <p id="faixa-host">Faixa de endereço que o host pertence: </p>
-            <p>Faixas de endereço de subredes: --.</p>
-            <ul>
-                <li>--</li>
-            </ul>
-        </div>
     </div>
-</body>
+
+    <div class="ip-info">
+      <p id="classe">Classe: --.</p>
+      <p id="numero-subredes">Número de subredes: --.</p>
+      <p id="host-por-subrede">Número de host/subrede: --.</p>
+      <p id="end-rede">Endereço de rede: --.</p>
+      <p id="end-broadcast">Endereço de broadcast: --.</p>
+      <p id="faixa-host">Faixa de endereço que o host pertence:</p>
+    </div>
+  </body>
 </html>
