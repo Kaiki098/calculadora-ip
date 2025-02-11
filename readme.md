@@ -22,8 +22,7 @@
 - A aplicação antes de realizar os calculos, verifica se a entrada é um IP válido.
 
 ## 📸 Demonstração
-
-![Demonstração da Calculadora IP](caminho/para/sua/imagem.png)
+![Demonstração da Calculadora IP](https://github.com/user-attachments/assets/35edbbb1-7ab3-4e74-97ef-984c14c37a33)
 
 ## ⚙️ Intruções de uso
 
