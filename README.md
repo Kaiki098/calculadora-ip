@@ -11,17 +11,16 @@
 </div>
 
 ## 🔨 Funcionalidades
-
 - Ao digitar um IP juntamente com sua máscara, é possível identificar: 
-  	- Classe;
-	- Número de subredes;
-	- Número de host/subrede;
-	- Endereço de broadcast;
-	- Faixa de endereço que o host pertence.
+      - Classe;
+    - Número de sub-redes;
+    - Número de hosts/sub-rede;
+    - Endereço de broadcast;
+    - Faixa de endereços que o host pertence.
 - A aplicação possui uma interface estilizada com uma caixa de entrada, um botão e uma caixa com as informações encontradas do IP.
-- A aplicação antes de realizar os calculos, verifica se a entrada é um IP válido.
+- A aplicação, antes de realizar os cálculos, verifica se a entrada é um IP válido.
 
-## 📸 Demonstração
+### 📸 Demonstração
 ![Demonstração da Calculadora IP](https://github.com/user-attachments/assets/35edbbb1-7ab3-4e74-97ef-984c14c37a33)
 
 ## ⚙️ Intruções de uso
