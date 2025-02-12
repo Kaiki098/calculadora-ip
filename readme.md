@@ -1,6 +1,6 @@
 # 🌐 Calculadora IP
 
-<p>Calculadora, capaz de exibir informações relacionadas ao IP informado.</p>
+<p>Calculadora capaz de exibir informações relacionadas ao IP informado.</p>
 
 ## 👨‍💻 Tecnologias
 
