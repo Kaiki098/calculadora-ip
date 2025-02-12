@@ -32,3 +32,9 @@ git clone https://github.com/Kaiki098/calculadora-ip.git
 cd calculadora-ip
 ```
 2. Após obter os arquivos em sua máquina, abra o arquivo index.html no seu navegador.
+
+## 🤝 Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 📄 Licença
+Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
